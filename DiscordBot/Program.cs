@@ -1,6 +1,4 @@
-﻿using System.IO;
-using System.Threading.Tasks;
-using DiscordBot.commands;
+﻿using DiscordBot.commands;
 using DSharpPlus;
 using DSharpPlus.SlashCommands;
 using Microsoft.Extensions.Logging;
@@ -13,7 +11,7 @@ namespace DiscordBot
         {
             var discord = new DiscordClient(new DiscordConfiguration()
             {
-                Token = File.ReadAllText("token.txt"),
+                Token = GetToken(),
                 TokenType = TokenType.Bot,
                 Intents = DiscordIntents.All,
                 MinimumLogLevel = LogLevel.Information,
@@ -23,6 +21,22 @@ namespace DiscordBot
             slash.RegisterCommands<AcCommands>(1115372571605610757);
             await Task.Delay(-1);
         }
-        
+
+        private static string GetToken()
+        {
+            var response = "";
+            try
+            {
+                response = File.ReadAllText("token.txt");
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("token.txt not found. Exiting");
+                Thread.Sleep(1000);
+                Environment.Exit(0);
+            }
+
+            return response;
+        }
     }
 }

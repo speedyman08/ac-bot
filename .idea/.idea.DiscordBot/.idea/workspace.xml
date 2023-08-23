@@ -7,7 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69110ade-5135-4118-b40e-c2f2081fd288" name="Changes" comment="add the bin and obj folder into gitignore" />
+    <list default="true" id="69110ade-5135-4118-b40e-c2f2081fd288" name="Changes" comment="Missing imports">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DiscordBot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DiscordBot/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiscordBot/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DiscordBot/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiscordBot/commands/AcCommands.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DiscordBot/commands/AcCommands.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,7 +85,7 @@
       <option name="presentableId" value="Default" />
       <updated>1692798741595</updated>
       <workItem from="1692798743560" duration="9260000" />
-      <workItem from="1692809023586" duration="317000" />
+      <workItem from="1692809023586" duration="1008000" />
     </task>
     <task id="LOCAL-00001" summary="Upload">
       <option name="closed" value="true" />
@@ -99,7 +103,31 @@
       <option name="project" value="LOCAL" />
       <updated>1692809333648</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="undo">
+      <option name="closed" value="true" />
+      <created>1692809387321</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1692809387321</updated>
+    </task>
+    <task id="LOCAL-00004" summary="remove bin and obj folders">
+      <option name="closed" value="true" />
+      <created>1692809454360</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1692809454360</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Missing imports">
+      <option name="closed" value="true" />
+      <created>1692809559513</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1692809559513</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,6 +138,9 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Upload" />
     <MESSAGE value="add the bin and obj folder into gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="add the bin and obj folder into gitignore" />
+    <MESSAGE value="undo" />
+    <MESSAGE value="remove bin and obj folders" />
+    <MESSAGE value="Missing imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Missing imports" />
   </component>
 </project>

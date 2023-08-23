@@ -1,8 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using DSharpPlus;
+﻿using DSharpPlus;
 using DSharpPlus.Entities;
 using DSharpPlus.SlashCommands;
 
