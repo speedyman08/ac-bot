@@ -18,7 +18,7 @@ namespace DiscordBot
             });
             await discord.ConnectAsync();
             var slash = discord.UseSlashCommands();
-            slash.RegisterCommands<AcCommands>(1115372571605610757);
+            slash.RegisterCommands<AcCommands>(1143929777766543441);
             await Task.Delay(-1);
         }
 
