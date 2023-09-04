@@ -113,7 +113,7 @@ public class AcCommands : ApplicationCommandModule
         try
         {
             var client = new HttpClient();
-            var response = await client.GetAsync("http://10.50.0.11:5000/homekit/ac-off");
+            var response = await client.GetAsync("http://10.50.0.111:5000/homekit/ac-off");
             if (response.IsSuccessStatusCode)
             {
                 string responseBody = await response.Content.ReadAsStringAsync();
