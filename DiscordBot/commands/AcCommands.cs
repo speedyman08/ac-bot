@@ -1,14 +1,13 @@
 ﻿using DSharpPlus;
 using DSharpPlus.Entities;
 using DSharpPlus.SlashCommands;
-using Newtonsoft.Json;
 using System.Text.Json;
 
 namespace DiscordBot.commands;
 public class AcCommands : ApplicationCommandModule
 {
     [SlashCommand("ac-on", "turns ac on")]
-    public async Task AcOn(InteractionContext e, 
+    public static async Task AcOn(InteractionContext e, 
             [Choice("cool","cool")] 
             [Choice("heat","heat")]
             [Choice("dry","dry")]
@@ -71,7 +70,7 @@ public class AcCommands : ApplicationCommandModule
             Console.WriteLine(response.IsSuccessStatusCode);
             if (response.IsSuccessStatusCode)
             {
-                string responseBody = await response.Content.ReadAsStringAsync();
+                var responseBody = await response.Content.ReadAsStringAsync();
                 var doc = JsonDocument.Parse(responseBody).RootElement;
 
                 if (doc.TryGetProperty("result", out var resultProperty) && resultProperty.GetBoolean())
@@ -85,7 +84,7 @@ public class AcCommands : ApplicationCommandModule
                 else
                 {
                     var embed = new DiscordEmbedBuilder()
-                        .WithTitle($"\u274C Failed to turn AC on")
+                        .WithTitle("\u274C Failed to turn AC on")
                         .WithColor(DiscordColor.Red);
                     await e.FollowUpAsync(new DiscordFollowupMessageBuilder().AddEmbed(embed));
                 }
@@ -98,7 +97,7 @@ public class AcCommands : ApplicationCommandModule
                 await e.FollowUpAsync(new DiscordFollowupMessageBuilder().AddEmbed(embed));
             }
         }
-        catch (HttpRequestException exception)
+        catch (HttpRequestException)
         {
             var embed = new DiscordEmbedBuilder()
                 .WithTitle("\u274C No response")
@@ -107,7 +106,7 @@ public class AcCommands : ApplicationCommandModule
         }
     }
     [SlashCommand("ac-off", "turns ac off")]
-    public async Task AcOff(InteractionContext e)
+    public static async Task AcOff(InteractionContext e)
     {
         await e.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
         try
@@ -116,21 +115,20 @@ public class AcCommands : ApplicationCommandModule
             var response = await client.GetAsync("http://10.50.0.111:5000/homekit/ac-off");
             if (response.IsSuccessStatusCode)
             {
-                string responseBody = await response.Content.ReadAsStringAsync();
+                var responseBody = await response.Content.ReadAsStringAsync();
                 var json = JsonDocument.Parse(responseBody).RootElement;
 
                 if (json.TryGetProperty("result", out var resultProperty) && resultProperty.GetBoolean())
                 {
                     var embed = new DiscordEmbedBuilder()
-                        .WithTitle($"\u2705 AC turned off")
+                        .WithTitle("\u2705 AC turned off")
                         .WithColor(DiscordColor.Green);
-
                     await e.FollowUpAsync(new DiscordFollowupMessageBuilder().AddEmbed(embed));
                 }
                 else
                 {
                     var embed = new DiscordEmbedBuilder()
-                        .WithTitle($"\u274C Failed to turn AC off")
+                        .WithTitle("\u274C Failed to turn AC off")
                         .WithColor(DiscordColor.Red);
                     await e.FollowUpAsync(new DiscordFollowupMessageBuilder().AddEmbed(embed));
                 }
@@ -144,7 +142,7 @@ public class AcCommands : ApplicationCommandModule
                 await e.FollowUpAsync(new DiscordFollowupMessageBuilder().AddEmbed(embed));
             }
         }
-        catch (HttpRequestException exception)
+        catch (HttpRequestException)
         {
             var embed = new DiscordEmbedBuilder()
                 .WithTitle("\u274C No response")
